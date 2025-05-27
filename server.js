@@ -8,6 +8,8 @@ app.set("views", path.join(__dirname, "views"))
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
+
 app.get("/", (req, res) => {
 
     res.render("index", { message: "This is message from back-end to front end" })
@@ -18,7 +20,7 @@ app.get('/property', (req, res) => {
     res.render("property")
 })
 
-app.get('/property/:id', (req, res) => {
+app.get('/view-property', (req, res) => {
     res.render('single_property')
 })
 
