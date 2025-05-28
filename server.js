@@ -1,6 +1,7 @@
 const express = require("express")
 const path = require("path")
 const app = express()
+require('./config/db')
 
 app.use(express.json())
 app.set("view engine", "ejs")
@@ -22,6 +23,10 @@ app.get('/property', (req, res) => {
 
 app.get('/view-property', (req, res) => {
     res.render('single_property')
+})
+
+app.get("/about",(req,res)=>{
+    res.render('about')
 })
 
 
