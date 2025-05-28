@@ -60,16 +60,24 @@
                   <div class="hero-mask opacity-9 bg-dark"></div>
                   <div class="hero-content">
                     <div class="logo mb-4">
-                      <h1 style="color: white; text-align: center">ساخت حساب کاربری</h1>
+                      <h1 style="color: white; text-align: center">
+                        ساخت حساب کاربری
+                      </h1>
                     </div>
-                    <form id="registerForm" class="form-dark" method="post">
+                    <form
+                      id="registerForm"
+                      class="form-dark"
+                      action="/register"
+                      method="post"
+                    >
                       <div class="form-group icon-group">
                         <input
                           type="text"
                           class="form-control"
                           id="fullName"
+                          name="fullname"
                           required
-                          placeholder="نام کاما"
+                          placeholder="نام کامل"
                         />
                         <span class="icon-inside"
                           ><i class="fas fa-user"></i
@@ -77,6 +85,7 @@
                       </div>
                       <div class="form-group icon-group">
                         <input
+                          name="email"
                           type="email"
                           class="form-control"
                           id="emailAddress"
@@ -89,6 +98,7 @@
                       </div>
                       <div class="form-group icon-group">
                         <input
+                          name="password"
                           type="password"
                           class="form-control"
                           id="loginPassword"
