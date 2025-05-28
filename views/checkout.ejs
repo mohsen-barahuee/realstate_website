@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="wpOceans" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/favicon.png"
+    />
+    <title>ملت وب - Suqat- Real Estate Single Property Template</title>
+    <link href="assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="assets/css/flaticon.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="assets/css/owl.carousel.css" rel="stylesheet" />
+    <link href="assets/css/owl.theme.css" rel="stylesheet" />
+    <link href="assets/css/slick.css" rel="stylesheet" />
+    <link href="assets/css/slick-theme.css" rel="stylesheet" />
+    <link href="assets/css/swiper.min.css" rel="stylesheet" />
+    <link href="assets/css/owl.transitions.css" rel="stylesheet" />
+    <link href="assets/css/jquery.fancybox.css" rel="stylesheet" />
+    <link href="assets/css/odometer-theme-default.css" rel="stylesheet" />
+    <link href="assets/sass/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="preloader">
+        <div class="vertical-centered-box">
+          <div class="content">
+            <div class="loader-circle"></div>
+            <div class="loader-line-mask"><div class="loader-line"></div></div>
+            <img src="assets/images/preloader.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <%- include('partials/header') %>
+      <section class="wpo-page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col col-xs-12">
+              <div class="wpo-breadcumb-wrap">
+                <h2>تسویه حساب</h2>
+                <ol class="wpo-breadcumb-wrap">
+                  <li><a href="index.html">صفحه اصلی</a></li>
+                  <li>تسویه حساب</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="wpo-checkout-area section-padding">
+        <div class="container">
+          <form>
+            <div class="checkout-wrap">
+              <div class="row">
+                <div class="col-lg-8 col-12">
+                  <div class="caupon-wrap s1">
+                    <div class="coupon coupon-active">
+                      <label id="toggle1"
+                        >کوپن دارید؟ برای وارد کردن کد خود اینجا را کلیک
+                        کنید.</label
+                      >
+                    </div>
+                    <div class="create-account">
+                      <span>اگر کد کوپن دارید، لطفا آن را اعمال کنید</span>
+                      <div class="input-wrap">
+                        <input type="password" /><button>درخواست کنید</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="caupon-wrap s2">
+                    <div class="biling-item">
+                      <div class="coupon coupon-3">
+                        <label id="toggle2">آدرس صورتحساب</label>
+                      </div>
+                      <div class="billing-adress" id="open2">
+                        <div class="contact-form form-style">
+                          <div class="row">
+                            <div class="col-lg-6 col-md-12 col-12">
+                              <label for="fname1">نام</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="fname1"
+                                name="fname"
+                              />
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12">
+                              <label for="fname2">نام خانوادگی</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="fname2"
+                                name="fname"
+                              />
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12">
+                              <label for="Country">کشور</label
+                              ><select
+                                name="address"
+                                id="Country"
+                                class="form-control"
+                              >
+                                <option disabled selected>ایالات متحده</option>
+                                <option>بنگلادش</option>
+                                <option>هندوستان</option>
+                                <option>سریلانکا</option>
+                                <option>پاکستان</option>
+                                <option>افغانستان</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12">
+                              <label for="City">خشک</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="City"
+                                name="City"
+                              />
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                              <label for="Adress">آدرس</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="Adress"
+                                name="Adress"
+                              />
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12">
+                              <label for="Post2">کد پستی</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="Post2"
+                                name="Post"
+                              />
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-12">
+                              <label for="email4">آدرس ایمیل</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="email4"
+                                name="email"
+                              />
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                              <label for="email2">شماره تلفن</label
+                              ><input
+                                type="text"
+                                placeholder=""
+                                id="email2"
+                                name="email"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="biling-item-2">
+                          <input id="toggle3" type="checkbox" /><label
+                            class="fontsize"
+                            for="toggle3"
+                            >به آدرس دیگری ارسال شود؟</label
+                          >
+                          <div class="billing-adress" id="open3">
+                            <div class="contact-form form-style">
+                              <div class="row">
+                                <div class="col-lg-6 col-md-12 col-12">
+                                  <label for="fname4">نام</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="fname4"
+                                    name="fname"
+                                  />
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-12">
+                                  <label for="fname3">نام خانوادگی</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="fname3"
+                                    name="fname"
+                                  />
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-12">
+                                  <label for="Country2">کشور</label
+                                  ><select
+                                    name="address"
+                                    id="Country2"
+                                    class="form-control"
+                                  >
+                                    <option disabled selected>
+                                      ایالات متحده
+                                    </option>
+                                    <option>بنگلادش</option>
+                                    <option>هندوستان</option>
+                                    <option>سریلانکا</option>
+                                    <option>پاکستان</option>
+                                    <option>افغانستان</option>
+                                  </select>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-12">
+                                  <label for="City2">خشک</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="City2"
+                                    name="City"
+                                  />
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                  <label for="Adress2">آدرس</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="Adress2"
+                                    name="Adress"
+                                  />
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-12">
+                                  <label for="Post">کد پستی</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="Post"
+                                    name="Post"
+                                  />
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-12">
+                                  <label for="emails">آدرس ایمیل</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="emails"
+                                    name="email"
+                                  />
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                  <label for="emaild">شماره تلفن</label
+                                  ><input
+                                    type="text"
+                                    placeholder=""
+                                    id="emaild"
+                                    name="email"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="note-area">
+                            <p>یادداشت های سفارش</p>
+                            <textarea
+                              name="massage"
+                              placeholder="در مورد سفارش خود توجه داشته باشید"
+                            ></textarea>
+                          </div>
+                          <div class="submit-btn-area">
+                            <ul>
+                              <li>
+                                <button class="theme-btn" type="submit">
+                                  ذخیره و ادامه
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="caupon-wrap s3">
+                    <div class="payment-area">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="coupon coupon-3">
+                            <label id="toggle4">روش پرداخت</label>
+                          </div>
+                          <div class="payment-option" id="open4">
+                            <div class="payment-select">
+                              <ul>
+                                <li class="addToggle">
+                                  <input
+                                    id="add"
+                                    type="radio"
+                                    name="payment"
+                                    checked
+                                    value="30"
+                                  /><label for="add">پرداخت با کارت</label>
+                                </li>
+                                <li class="removeToggle">
+                                  <input
+                                    id="remove"
+                                    type="radio"
+                                    name="payment"
+                                    value="30"
+                                  /><label for="remove">تحویل نقدی</label>
+                                </li>
+                              </ul>
+                            </div>
+                            <div id="open5" class="payment-name active">
+                              <ul>
+                                <li class="visa">
+                                  <input
+                                    id="1"
+                                    type="radio"
+                                    name="size"
+                                    value="30"
+                                  /><label for="1"
+                                    ><img
+                                      src="assets/images/checkout/img-1.png"
+                                      alt=""
+                                  /></label>
+                                </li>
+                                <li class="mas">
+                                  <input
+                                    id="2"
+                                    type="radio"
+                                    name="size"
+                                    value="30"
+                                  /><label for="2"
+                                    ><img
+                                      src="assets/images/checkout/img-2.png"
+                                      alt=""
+                                  /></label>
+                                </li>
+                                <li class="ski">
+                                  <input
+                                    id="3"
+                                    type="radio"
+                                    name="size"
+                                    value="30"
+                                  /><label for="3"
+                                    ><img
+                                      src="assets/images/checkout/img-3.png"
+                                      alt=""
+                                  /></label>
+                                </li>
+                                <li class="pay">
+                                  <input
+                                    id="4"
+                                    type="radio"
+                                    name="size"
+                                    value="30"
+                                  /><label for="4"
+                                    ><img
+                                      src="assets/images/checkout/img-4.png"
+                                      alt=""
+                                  /></label>
+                                </li>
+                              </ul>
+                              <div class="contact-form form-style">
+                                <div class="row">
+                                  <div class="col-lg-6 col-md-12 col-12">
+                                    <label for="holder">نام دارنده کارت</label
+                                    ><input
+                                      type="text"
+                                      placeholder=""
+                                      id="holder"
+                                      name="name"
+                                    />
+                                  </div>
+                                  <div class="col-lg-6 col-md-12 col-12">
+                                    <label for="card">شماره کارت</label
+                                    ><input
+                                      type="text"
+                                      placeholder=""
+                                      id="card"
+                                      name="card"
+                                    />
+                                  </div>
+                                  <div class="col-lg-6 col-md-12 col-12">
+                                    <label for="CVV">CVV</label
+                                    ><input
+                                      type="text"
+                                      placeholder=""
+                                      id="CVV"
+                                      name="CVV"
+                                    />
+                                  </div>
+                                  <div class="col-lg-6 col-md-12 col-12">
+                                    <label for="date">تاریخ انقضا</label
+                                    ><input
+                                      type="text"
+                                      placeholder=""
+                                      id="date"
+                                      name="date"
+                                    />
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="submit-btn-area text-center">
+                                      <button class="theme-btn" type="submit">
+                                        ثبت سفارش
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-12">
+                  <div class="cout-order-area">
+                    <div class="oreder-item">
+                      <ul>
+                        <li class="o-header">سفارش شما<span>( 6 )</span></li>
+                        <li>محصول 1 X 1<span>50</span></li>
+                        <li>محصول 2 X 1<span>50</span></li>
+                        <li>محصول 3 X 2<span>100</span></li>
+                        <li>محصول 4 X 1<span>50</span></li>
+                        <li class="o-middle">محصول 5 X 1<span>50</span></li>
+                        <li class="s-total">زیر مجموع<span>400</span></li>
+                        <li>( + ) VAT<span>100</span></li>
+                        <li>( + ) Eco Tax<span>100</span></li>
+                        <li>( - ) Discount Price<span>100</span></li>
+                        <li class="o-bottom">قیمت کل<span>500</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <%- include('partials/footer') %>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="assets/js/jquery-plugin-collection.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

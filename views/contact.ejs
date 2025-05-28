@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="wpOceans" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/favicon.png"
+    />
+    <title>ملت وب - Suqat- Real Estate Single Property Template</title>
+    <link href="assets/css/themify-icons.css" rel="stylesheet" />
+    <link href="assets/css/flaticon.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="assets/css/owl.carousel.css" rel="stylesheet" />
+    <link href="assets/css/owl.theme.css" rel="stylesheet" />
+    <link href="assets/css/slick.css" rel="stylesheet" />
+    <link href="assets/css/slick-theme.css" rel="stylesheet" />
+    <link href="assets/css/swiper.min.css" rel="stylesheet" />
+    <link href="assets/css/owl.transitions.css" rel="stylesheet" />
+    <link href="assets/css/jquery.fancybox.css" rel="stylesheet" />
+    <link href="assets/css/odometer-theme-default.css" rel="stylesheet" />
+    <link href="assets/sass/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="preloader">
+        <div class="vertical-centered-box">
+          <div class="content">
+            <div class="loader-circle"></div>
+            <div class="loader-line-mask"><div class="loader-line"></div></div>
+            <img src="assets/images/preloader.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <%- include('partials/header') %>
+      <section class="wpo-page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col col-xs-12">
+              <div class="wpo-breadcumb-wrap">
+                <h2>تماس بگیرید</h2>
+                <ol class="wpo-breadcumb-wrap">
+                  <li><a href="index.html">صفحه اصلی</a></li>
+                  <li>تماس بگیرید</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wpo-contact-map-section pt-120">
+        <div class="container-fluid">
+          <h2 class="hidden">نقشه تماس</h2>
+          <div class="wpo-contact-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147703055!2d-74.11976314309273!3d40.69740344223377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbd!4v1547528325671"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      <section class="wpo-contact-pg-section section-padding pt-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="wpo-contact-form-area">
+                <div class="wpo-contact-title">
+                  <h2>آیا هر گونه سوال؟</h2>
+                  <p>
+                    این یک واقعیت ثابت شده است که خواننده هنگام نگاه کردن به
+                    محتوای صفحه، حواسش پرت می شود.
+                  </p>
+                </div>
+                <form
+                  method="post"
+                  class="contact-validation-active"
+                  id="contact-form-main"
+                >
+                  <div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      id="name"
+                      placeholder="نام شما*"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="ایمیل شما*"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="phone"
+                      id="phone"
+                      placeholder="تلفن شما*"
+                    />
+                  </div>
+                  <div>
+                    <select name="subject" class="form-control">
+                      <option disabled selected>موضوع</option>
+                      <option>کاشی بتنی</option>
+                      <option>اتاق خانواده</option>
+                      <option>مهمان کواترز</option>
+                      <option>کف گرم</option>
+                    </select>
+                  </div>
+                  <div class="fullwidth">
+                    <textarea
+                      class="form-control"
+                      name="note"
+                      id="note"
+                      placeholder="پیام..."
+                    ></textarea>
+                  </div>
+                  <div class="submit-area">
+                    <button type="submit" class="theme-btn">تماس بگیرید</button>
+                    <div id="loader"><i class="ti-reload"></i></div>
+                  </div>
+                  <div class="clearfix error-handling-messages">
+                    <div id="success">متشکرم</div>
+                    <div id="error">
+                      هنگام ارسال ایمیل خطایی رخ داد. لطفاً بعداً دوباره امتحان
+                      کنید.
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col col-lg-4">
+              <div class="office-info">
+                <div class="office-info-item">
+                  <div class="office-info-icon">
+                    <div class="icon">
+                      <i class="fi flaticon-phone-call"></i>
+                    </div>
+                  </div>
+                  <div class="office-info-text">
+                    <h2>با ما تماس بگیرید:</h2>
+                    <p>+00 697-836-937</p>
+                  </div>
+                </div>
+                <div class="office-info-item">
+                  <div class="office-info-icon">
+                    <div class="icon"><i class="fi flaticon-email"></i></div>
+                  </div>
+                  <div class="office-info-text">
+                    <h2>به ما ایمیل بزنید:</h2>
+                    <p>wosabinfo@gmail.com</p>
+                  </div>
+                </div>
+                <div class="office-info-item">
+                  <div class="office-info-icon">
+                    <div class="icon"><i class="fi flaticon-house"></i></div>
+                  </div>
+                  <div class="office-info-text">
+                    <h2>ساعت کاری:</h2>
+                    <p>09:00 صبح تا 10:00 شب</p>
+                  </div>
+                </div>
+                <div class="office-info-item">
+                  <div class="office-info-icon">
+                    <div class="icon">
+                      <i class="fi flaticon-placeholder"></i>
+                    </div>
+                  </div>
+                  <div class="office-info-text">
+                    <h2>مکان ما:</h2>
+                    <p>8932، ناتیسکا، ایالات متحده آمریکا.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%- include('partials/footer') %>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="assets/js/jquery-plugin-collection.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
