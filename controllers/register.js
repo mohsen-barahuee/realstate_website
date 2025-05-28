@@ -2,7 +2,7 @@ const userModel = require('../models/user')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-exports.register = (req, res) => {
+exports.register = async (req, res) => {
     res.render('register')
 }
 
@@ -40,9 +40,47 @@ exports.registerUser = async (req, res) => {
     }
 }
 
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
 
     res.render('login')
+
+
+}
+
+exports.loginUser = async (req, res) => {
+
+    try {
+        const { email, password } = req.body
+        const isUserExist = await userModel.findOne({ email })
+
+        if (!isUserExist) {
+            return res.status(404).redirect('/login')
+        }
+        const isPasswordCorrect = bcrypt.compareSync(password, isUserExist.password)
+
+        if (!isPasswordCorrect) {
+            return res.status(404).redirect('/login')
+        }
+
+        const token = jwt.sign({ id: isUserExist._id, role: isUserExist.role, email: isUserExist.email }, process.env.JWT_SECRET_KEY)
+
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            maxAge: 1000 * 60 * 60 * 24 * 365,
+
+
+        })
+        res.status(201).redirect('/')
+
+
+
+    } catch (error) {
+        console.log("server Error -->", error);
+
+        res.status(500).json("server Error")
+    }
+
 
 
 }

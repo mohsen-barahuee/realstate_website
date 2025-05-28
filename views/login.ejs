@@ -35,6 +35,7 @@
   </head>
   <body>
     <!-- Preloader -->
+
     <div class="preloader preloader-dark">
       <div class="lds-ellipsis">
         <div></div>
@@ -63,9 +64,15 @@
                         وارد شوید
                       </h1>
                     </div>
-                    <form id="loginForm" class="form-dark" method="post">
+                    <form
+                      id="loginForm"
+                      class="form-dark"
+                      action="/login"
+                      method="post"
+                    >
                       <div class="form-group icon-group">
                         <input
+                          name="email"
                           type="email"
                           class="form-control"
                           id="emailAddress"
@@ -78,6 +85,7 @@
                       </div>
                       <div class="form-group icon-group">
                         <input
+                          name="password"
                           type="password"
                           class="form-control"
                           id="loginPassword"
@@ -95,23 +103,7 @@
                         ورود
                       </button>
                       <div class="row text-2 mt-4">
-                        <div class="col-sm">
-                          <div
-                            class="form-check custom-control custom-checkbox"
-                          >
-                            <input
-                              id="remember-me"
-                              name="remember"
-                              class="custom-control-input"
-                              type="checkbox"
-                            />
-                            <label
-                              class="custom-control-label text-light"
-                              for="remember-me"
-                              >به خاطر سپردن</label
-                            >
-                          </div>
-                        </div>
+                     
                         <div class="col-sm text-right">
                           <a class="btn-link text-light" href="forgot-password"
                             >فراموشی رمز عبور؟</a
