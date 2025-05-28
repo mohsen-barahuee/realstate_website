@@ -1,9 +1,16 @@
 const express = require("express")
+const cookieParser = require("cookie-parser")
+
 const path = require("path")
 const app = express()
+const registerRouter = require("./routes/register")
+require('dotenv').config()
+
 require('./config/db')
 
 app.use(express.json())
+app.use(cookieParser())
+
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "views"))
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,6 +22,8 @@ app.get("/", (req, res) => {
 
     res.render("index", { message: "This is message from back-end to front end" })
 })
+
+app.use('/', registerRouter)
 
 
 app.get('/property', (req, res) => {
@@ -52,9 +61,14 @@ app.get("/cart", (req, res) => {
     res.render("cart")
 })
 
-app.get('/checkout',(req,res)=>{
+app.get('/checkout', (req, res) => {
     res.render("checkout")
 })
+
+
+
+
+
 
 app.use((req, res) => {
     res.status(404).render("404", {
@@ -62,6 +76,7 @@ app.use((req, res) => {
         message: "The page you're looking for does not exist.",
     });
 })
+
 
 
 
