@@ -8,7 +8,6 @@ exports.register = async (req, res) => {
     res.render('register')
 }
 
-
 exports.registerUser = async (req, res) => {
     try {
 
@@ -30,8 +29,6 @@ exports.registerUser = async (req, res) => {
             httpOnly: true,
             secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 365,
-
-
         })
 
         res.status(201).redirect('/')
@@ -46,11 +43,8 @@ exports.login = async (req, res) => {
 
     res.render('login')
 
-
 }
-
 exports.loginUser = async (req, res) => {
-
     try {
         const { email, password } = req.body
         const isUserExist = await userModel.findOne({ email })
@@ -63,18 +57,14 @@ exports.loginUser = async (req, res) => {
         if (!isPasswordCorrect) {
             return res.status(404).redirect('/login')
         }
-
         const token = jwt.sign({ id: isUserExist._id, role: isUserExist.role, email: isUserExist.email }, process.env.JWT_SECRET_KEY)
-
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 365,
-
-
         })
-        res.status(201).redirect('/')
 
+        res.status(201).redirect('/')
 
     } catch (error) {
         console.log("server Error -->", error);
@@ -82,45 +72,57 @@ exports.loginUser = async (req, res) => {
         res.status(500).json("server Error")
     }
 
-
 }
-
-
 
 exports.forgotPassword = (req, res) => {
     res.render('forgotPassword')
 }
 
 exports.senEmail = async (req, res) => {
-    // Create a test account or replace with real credentials.
-    const transporter = nodemailer.createTransport({
-        host: "live.smtp.mailtrap.io",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: "smtp@mailtrap.io",
-            pass: "f449307fa884f01615bac579f617be64",
-        },
-    });
 
+    try {
+        const { email } = req.body
 
-    // Wrap in an async IIFE so we can use await.
-    (async () => {
-        const info = await transporter.sendMail({
-            from: 'realstate@demomailtrap.co',
-            to: "nakel3920@gmail.com",
-            subject: "RealState Reset Password",
-            text: "Reset the password", // plain‑text body
-            // html: "<b>Hello world?</b>", // HTML body
+        const user = await userModel.findOne({ email })
+
+        if (!user) {
+            return res.status(404).json({ message: "user not found" })
+        }
+        const newPassword = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+
+        const hashNewPassword = bcrypt.hashSync(newPassword, 12)
+
+        const updateUserPassword = await userModel.findByIdAndUpdate(user._id, { password: hashNewPassword })
+
+        // Create a test account or replace with real credentials.
+        const transporter = nodemailer.createTransport({
+            host: "live.smtp.mailtrap.io",
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+                user: "smtp@mailtrap.io",
+                pass: "f449307fa884f01615bac579f617be64",
+            },
         });
 
-        console.log("Message sent:", info.messageId);
-    })();
+        // Wrap in an async IIFE so we can use await.
+        (async () => {
+            const info = await transporter.sendMail({
+                from: 'realstate@demomailtrap.co',
+                to: email,
+                subject: "RealState Reset Password",
+                // text: "Password Reset Code", // plain‑text body
+                html: `<h1>Code : ${newPassword}</h1>`, // HTML body
+            });
+            console.log("Message sent:", info.messageId);
+        })();
 
-
-    return res.status(200).json({message :"We sent email to your account"})
+        res.status(200).redirect('/login')
+    } catch (error) {
+        console.log("Server Error -->", error);
+        res.status(500).json("server Error!!")
+    }
 }
-
 
 exports.getMe = async (req, res) => {
 
