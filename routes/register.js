@@ -1,16 +1,20 @@
 const express = require("express")
 const registerController = require('../controllers/register')
-const route = express.Router()
+const router = express.Router()
 
 
-route.route('/login')
+router.route('/login')
     .get(registerController.login)
     .post(registerController.loginUser)
-route.route('/register')
+router.route('/register')
     .get(registerController.register)
     .post(registerController.registerUser)
 
-route.route('/forgot-password').get(registerController.forgotPassword)
+router.route('/forgot-password')
+    .get(registerController.forgotPassword)
+    .post(registerController.senEmail)
+
+router.route('/get-me').get(registerController.getMe)
 
 
-module.exports = route
+module.exports = router

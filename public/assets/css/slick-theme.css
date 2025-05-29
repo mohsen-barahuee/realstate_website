@@ -15,6 +15,13 @@
     src: url('../fonts/slick.eot');
     src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'), url('../fonts/slick.woff') format('woff'), url('../fonts/slick.ttf') format('truetype'), url('../fonts/slick.svg#slick') format('svg');
 }
+
+.login-tag{
+    color: black;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
 /* Arrows */
 .slick-prev,
 .slick-next

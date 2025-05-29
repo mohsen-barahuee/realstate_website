@@ -88,6 +88,8 @@
           </div>
           <div class="col-lg-2 col-md-2 col-2">
             <div class="header-right">
+              <div id="account"></div>
+
               <div class="mini-cart">
                 <button class="cart-toggle-btn">
                   <i class="fi flaticon-shopping-cart"></i
@@ -136,11 +138,8 @@
                       >جمع فرعی:<span>$215.14</span></span
                     >
                     <div class="mini-btn">
-                      <a href="checkout" class="view-cart-btn s1"
-                        >تسویه حساب</a
-                      ><a href="cart" class="view-cart-btn"
-                        >مشاهده سبد خرید</a
-                      >
+                      <a href="checkout" class="view-cart-btn s1">تسویه حساب</a
+                      ><a href="cart" class="view-cart-btn">مشاهده سبد خرید</a>
                     </div>
                   </div>
                 </div>
@@ -171,4 +170,51 @@
       </div>
     </nav>
   </div>
+  <script>
+    let accountContainer = document.getElementById("account");
+
+    const getUserData = async () => {
+      const response = await fetch("/get-me");
+
+      if (response.status === 404) {
+        return accountContainer.insertAdjacentHTML(
+          "beforebegin",
+          "<a class='login-tag' href=/login>ثبت نام | ورود</a>"
+        );
+      }
+      const data = await response.json();
+      accountContainer.insertAdjacentHTML(
+        "beforebegin",
+        `
+        <a href=account>
+           <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  style="
+                    width: 30px;
+
+                    margin-bottom: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: black;
+                    opacity: 0.8;
+                  "
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                </svg>
+           </a>
+        `
+      );
+    };
+    getUserData();
+    
+  </script>
 </header>
