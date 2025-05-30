@@ -96,23 +96,24 @@ exports.senEmail = async (req, res) => {
 
         // Create a test account or replace with real credentials.
         const transporter = nodemailer.createTransport({
-            host: "live.smtp.mailtrap.io",
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            // host: "live.smtp.mailtrap.io",
+            // port: 587,
+            // secure: false, // true for 465, false for other ports
+            service: "gmail",
             auth: {
-                user: "smtp@mailtrap.io",
-                pass: "f449307fa884f01615bac579f617be64",
+                user: "mohsenbrh657@gmail.com",
+                pass: "mvra dfzw iobo zjss",
             },
         });
 
         // Wrap in an async IIFE so we can use await.
         (async () => {
             const info = await transporter.sendMail({
-                from: 'realstate@demomailtrap.co',
+                from: 'mohsenbrh657@gmail.com',
                 to: email,
                 subject: "RealState Reset Password",
                 // text: "Password Reset Code", // plain‑text body
-                html: `<h1>Code : ${newPassword}</h1>`, // HTML body
+                html: `<h1>New Password : ${newPassword}</h1>`, // HTML body
             });
             console.log("Message sent:", info.messageId);
         })();
@@ -127,7 +128,6 @@ exports.senEmail = async (req, res) => {
 exports.getMe = async (req, res) => {
 
     try {
-
         if (!req.headers.cookie) {
             return res.status(404).json({ messgae: "error" })
         }
