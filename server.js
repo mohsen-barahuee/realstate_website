@@ -1,10 +1,10 @@
 const express = require("express")
 const cookieParser = require("cookie-parser")
-
-
 const path = require("path")
 const app = express()
 const registerRouter = require("./routes/register")
+const blogRouter = require('./routes/blog')
+const { log } = require("console")
 require('dotenv').config()
 
 require('./config/db')
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/', registerRouter)
-
+app.use('/',blogRouter)
 
 app.get('/property', (req, res) => {
     res.render("property")
@@ -38,11 +38,6 @@ app.get('/view-property', (req, res) => {
 
 app.get("/about", (req, res) => {
     res.render('about')
-})
-
-
-app.get("/blogs", (req, res) => {
-    res.render("blogs")
 })
 
 
