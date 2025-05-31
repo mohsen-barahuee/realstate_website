@@ -43,6 +43,7 @@
           <div class="row">
             <div class="col-lg-10 offset-lg-1">
               <div class="wpo-blog-content">
+                <% blogs.forEach(function(blog) { %>
                 <div class="post format-standard-image">
                   <div class="entry-media">
                     <img src="assets/images/blog/img-5.jpg" alt />
@@ -75,9 +76,12 @@
                       تا ارتباطات باشد، معماری یک مسیر شغلی عالی است. اگر عاشق
                       بالا رفتن از یک چالش هستید.
                     </p>
-                    <a href="view-blog" class="read-more">بیشتر بخوانید...</a>
+                    <a href="view-blog?id=<%= blog._id %>" class="read-more"
+                      >بیشتر بخوانید...</a
+                    >
                   </div>
                 </div>
+                <% }); %>
 
                 <div class="pagination-wrapper pagination-wrapper-left">
                   <ul class="pg-pagination">

@@ -7,6 +7,7 @@ const uploader = require('../middleware/upload')
 router.route('/blogs')
     .get(blogsController.viewBlogs)
 
+
 router.route('/view-blog')
     .get(blogsController.viewSingleBlog)
 

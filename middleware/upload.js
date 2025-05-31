@@ -24,8 +24,6 @@ const storage = multer.diskStorage({
     }
 })
 
-
-
 const uploader = multer({
     storage
 })

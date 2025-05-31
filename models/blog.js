@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose')
 
 
@@ -25,3 +26,9 @@ const schema = mongoose.Schema({
     }
 
 })
+
+
+
+const model = mongoose.model('Blog', schema)
+
+module.exports = model

@@ -7,6 +7,11 @@ const nodemailer = require('nodemailer')
 exports.register = async (req, res) => {
     res.render('register')
 }
+exports.login = async (req, res) => {
+
+    res.render('login')
+
+}
 
 exports.registerUser = async (req, res) => {
     try {
@@ -39,11 +44,6 @@ exports.registerUser = async (req, res) => {
     }
 }
 
-exports.login = async (req, res) => {
-
-    res.render('login')
-
-}
 exports.loginUser = async (req, res) => {
     try {
         const { email, password } = req.body
