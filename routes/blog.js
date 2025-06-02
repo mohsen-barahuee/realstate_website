@@ -14,7 +14,7 @@ router.route('/view-blog')
 router.route('/blog/upload')
     .post(uploader.fields([
         { name: 'thumbnail', maxCount: 1 },
-        { name: "pictures", maxCount: 10 }
+        { name: "pictures", maxCount: 6 }
     ]), blogsController.uploadBlog)
 
 

@@ -3,17 +3,19 @@ const blogModel = require('../models/blog')
 
 exports.viewBlogs = async (req, res) => {
     const blogs = await blogModel.find().populate('writer', '-password -role -__v')
+
+
     res.render("blogs", { blogs })
 }
 
 
 exports.viewSingleBlog = async (req, res) => {
-    console.log(req.query.id);
 
-    res.render("blog-single")
+
+    const singlBlog = await blogModel.findOne({ _id: req.query.id }).populate('writer', '-password -role -__v')
+    
+    res.render("blog-single", { singlBlog })
 }
-
-
 
 
 exports.uploadBlog = async (req, res) => {

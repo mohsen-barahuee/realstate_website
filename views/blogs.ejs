@@ -46,14 +46,13 @@
                 <% blogs.forEach(function(blog) { %>
                 <div class="post format-standard-image">
                   <div class="entry-media">
-                    <img src="assets/images/blog/img-5.jpg" alt />
+                    <img src="<%= blog.thumbnail %>" alt />
                   </div>
                   <div class="entry-meta">
                     <ul>
                       <li>
-                        <i class="fi flaticon-user"></i>توسط<a href="#"
-                          >جنی واتسون</a
-                        >
+                        <i class="fi flaticon-user"> </i>توسط
+                        <a href="#"><%= blog.writer.fullname %></a>
                       </li>
                       <li>
                         <i class="fi flaticon-comment-white-oval-bubble"></i
@@ -66,16 +65,9 @@
                   </div>
                   <div class="entry-details">
                     <h3>
-                      <a href="view-blog"
-                        >اتخاذ تصمیمات آگاهانه برای تامین مالی خانه</a
-                      >
+                      <a href="view-blog"><%= blog.title %></a>
                     </h3>
-                    <p>
-                      اگر می خواهید مجموعه مهارت های گسترده ای را ایجاد کنید که
-                      شامل همه چیز از تفکر انتقادی و برنامه ریزی استراتژیک گرفته
-                      تا ارتباطات باشد، معماری یک مسیر شغلی عالی است. اگر عاشق
-                      بالا رفتن از یک چالش هستید.
-                    </p>
+                    <p><%= blog.body %></p>
                     <a href="view-blog?id=<%= blog._id %>" class="read-more"
                       >بیشتر بخوانید...</a
                     >
