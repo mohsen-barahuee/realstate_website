@@ -1050,51 +1050,29 @@
                 <div class="wpo-section-title-s2">
                   <small>وبلاگ و مقاله</small>
                   <h2>ما را بررسی کنید<span>آخرین وبلاگ</span>و مقاله</h2>
-                  <a class="theme-btn" href="blog-single.html"
-                    >پست وبلاگ دیگران</a
-                  >
+                  <a class="theme-btn" href="blogs">پست وبلاگ دیگران</a>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-7">
                 <div class="blog-right-wrap clearfix">
                   <div class="row">
+                    <% blog.forEach(function(item){ %>
                     <div class="col-lg-6 col-md-6 colo-12">
                       <div class="blog-item">
                         <div class="image">
-                          <img src="assets/images/blog/img-1.jpg" alt="" />
-                          <div class="thumb"><span>26 آوریل 2023</span></div>
+                          <img src="<%= item.thumbnail %>" alt="" />
                         </div>
                         <div class="blog-content">
-                          <h2>
-                            <a href="blog-single.html"
-                              >اتخاذ تصمیمات آگاهانه برای تامین مالی خانه</a
-                            >
-                          </h2>
-                          <a class="read-more" href="blog-single.html"
+                          <h2><%= item.title %></h2>
+                          <a
+                            class="read-more"
+                            href="view-blog?id=<%= item._id %>"
                             >ادامه مطلب</a
                           >
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 colo-12">
-                      <div class="blog-item s2">
-                        <div class="image">
-                          <img src="assets/images/blog/img-2.jpg" alt="" />
-                          <div class="thumb"><span>24 آوریل 2023</span></div>
-                        </div>
-                        <div class="blog-content">
-                          <h2>
-                            <a href="blog-single.html"
-                              >خانه خود را بفروشید؟ چگونه آن را برای حداکثر
-                              تأثیر صحنه سازی کنیم.</a
-                            >
-                          </h2>
-                          <a class="read-more" href="blog-single.html"
-                            >ادامه مطلب</a
-                          >
-                        </div>
-                      </div>
-                    </div>
+                    <% }) %>
                   </div>
                 </div>
               </div>

@@ -4,9 +4,10 @@ const path = require("path")
 const app = express()
 const registerRouter = require("./routes/register")
 const blogRouter = require('./routes/blog')
-const { log } = require("console")
-require('dotenv').config()
+const blogModel = require('./models/blog')
+const commentRouter = require("./routes/comment")
 
+require('dotenv').config()
 require('./config/db')
 
 app.use(express.json())
@@ -22,14 +23,16 @@ app.use('/uploads', express.static(path.join(__dirname, "uploads")))
 
 
 
-
-app.get("/", (req, res) => {
-
-    res.render("index", { message: "This is message from back-end to front end" })
-})
-
 app.use('/', registerRouter)
 app.use('/', blogRouter)
+app.use('/', commentRouter)
+
+app.get("/", async (req, res) => {
+
+    const blogs = await blogModel.find()
+    res.render("index", { blog: blogs.slice(0, 2) })
+})
+
 
 app.get('/property', (req, res) => {
     res.render("property")

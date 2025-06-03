@@ -52,9 +52,14 @@
                   <div class="entry-meta">
                     <ul>
                       <li>
-                        <i class="fi ti-user"></i>توسط<a href="#">جنی واتسون</a>
+                        <i class="fi ti-user"></i>توسط<a href="#"
+                          ><%= singlBlog.writer.fullname %></a
+                        >
                       </li>
-                      <li><i class="fi ti-comment-alt"></i>نظرات 35</li>
+                      <li>
+                        <i class="fi ti-comment-alt"></i>نظرات <%=
+                        blogComments.length %>
+                      </li>
                       <li><i class="fi ti-calendar"></i>24 ژوئن 2023</li>
                     </ul>
                   </div>
@@ -85,14 +90,18 @@
                       و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه
                       روزنامه و مجله در ستون و سطرآنچنان که لازم است و
                     </p>
-                   
                   </div>
                 </div>
-               
+
                 <div class="comments-area">
                   <div class="comments-section">
-                    <h3 class="comments-title">5 نظر</h3>
+                    <h3 class="comments-title">
+                      <% if(blogComments){ %> <%= blogComments.length %> نظر
+                      <%}%>
+                    </h3>
                     <ol class="comments">
+                      <% if(blogComments) { %> <%
+                      blogComments.reverse().forEach(function(comments){ %>
                       <li
                         class="comment even thread-even depth-1"
                         id="comment-1"
@@ -110,130 +119,17 @@
                             <div class="comment-wrapper">
                               <div class="comments-meta">
                                 <h4>
-                                  رابرت سانی<span class="comments-date"
-                                    >می گوید 21 ژوئیه 2023 ساعت 10:00 صبح</span
+                                  <%= comments.creator.fullname %><span
+                                    class="comments-date"
+                                  >
+                                    <%= comments.time[0] %> ساعت <%=
+                                    comments.time[4]%>: <%= comments.time[3]
+                                    %></span
                                   >
                                 </h4>
                               </div>
                               <div class="comment-area">
-                                <p>
-                                  من باید برای شما توضیح دهم که چگونه این همه
-                                  تصور اشتباه تقبیح لذت و ستایش درد به وجود آمد
-                                  و گزارش کاملی از سیستم به شما خواهم داد.
-                                </p>
-                                <div class="comments-reply">
-                                  <a class="comment-reply-link" href="#"
-                                    ><span>پاسخ دهید</span></a
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <ul class="children">
-                          <li class="comment">
-                            <div>
-                              <div class="comment-theme">
-                                <div class="comment-image">
-                                  <img
-                                    src="assets/images/blog-details/comments-author/img-2.jpg"
-                                    alt
-                                  />
-                                </div>
-                              </div>
-                              <div class="comment-main-area">
-                                <div class="comment-wrapper">
-                                  <div class="comments-meta">
-                                    <h4>
-                                      جان ابراهیم<span class="comments-date"
-                                        >می گوید 21 ژوئیه 2023 ساعت 10:00
-                                        صبح</span
-                                      >
-                                    </h4>
-                                  </div>
-                                  <div class="comment-area">
-                                    <p>
-                                      من باید برای شما توضیح دهم که چگونه این
-                                      همه تصور اشتباه تقبیح لذت و ستایش درد به
-                                      وجود آمد و گزارش کاملی از سیستم به شما
-                                      خواهم داد.
-                                    </p>
-                                    <div class="comments-reply">
-                                      <a class="comment-reply-link" href="#"
-                                        ><span>پاسخ دهید</span></a
-                                      >
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <ul>
-                              <li class="comment">
-                                <div>
-                                  <div class="comment-theme">
-                                    <div class="comment-image">
-                                      <img
-                                        src="assets/images/blog-details/comments-author/img-3.jpg"
-                                        alt
-                                      />
-                                    </div>
-                                  </div>
-                                  <div class="comment-main-area">
-                                    <div class="comment-wrapper">
-                                      <div class="comments-meta">
-                                        <h4>
-                                          رابرت سانی<span class="comments-date"
-                                            >می گوید 21 ژوئیه 2023 ساعت 10:00
-                                            صبح</span
-                                          >
-                                        </h4>
-                                      </div>
-                                      <div class="comment-area">
-                                        <p>
-                                          من باید برای شما توضیح دهم که چگونه
-                                          این همه تصور اشتباه تقبیح لذت و ستایش
-                                          درد به وجود آمد و گزارش کاملی از سیستم
-                                          به شما خواهم داد.
-                                        </p>
-                                        <div class="comments-reply">
-                                          <a class="comment-reply-link" href="#"
-                                            ><span>پاسخ دهید</span></a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="comment">
-                        <div>
-                          <div class="comment-theme">
-                            <div class="comment-image">
-                              <img
-                                src="assets/images/blog-details/comments-author/img-1.jpg"
-                                alt
-                              />
-                            </div>
-                          </div>
-                          <div class="comment-main-area">
-                            <div class="comment-wrapper">
-                              <div class="comments-meta">
-                                <h4>
-                                  جان ابراهیم<span class="comments-date"
-                                    >می گوید 21 ژوئیه 2023 ساعت 10:00 صبح</span
-                                  >
-                                </h4>
-                              </div>
-                              <div class="comment-area">
-                                <p>
-                                  من باید برای شما توضیح دهم که چگونه این همه
-                                  تصور اشتباه تقبیح لذت و ستایش درد به وجود آمد
-                                  و گزارش کاملی از سیستم به شما خواهم داد.
-                                </p>
+                                <p><%= comments.body %></p>
                                 <div class="comments-reply">
                                   <a class="comment-reply-link" href="#"
                                     ><span>پاسخ دهید</span></a
@@ -244,27 +140,8 @@
                           </div>
                         </div>
                       </li>
+                      <%})%> <%}%>
                     </ol>
-                  </div>
-                  <div class="comment-respond">
-                    <h3 class="comment-reply-title">یک پاسخ بگذارید</h3>
-                    <form class="comment-form">
-                      <div class="form-inputs">
-                        <input placeholder="نام" type="text" /><input
-                          placeholder="ایمیل"
-                          type="email"
-                        /><input placeholder="وب سایت" type="url" />
-                      </div>
-                      <div class="form-textarea">
-                        <textarea
-                          id="comment"
-                          placeholder="نظرات خود را بنویسید..."
-                        ></textarea>
-                      </div>
-                      <div class="form-submit">
-                        <input id="submit" value="Post Comment" type="submit" />
-                      </div>
-                    </form>
                   </div>
                 </div>
               </div>

@@ -1,8 +1,15 @@
 const blogModel = require('../models/blog')
-
+const commentModel = require("../models/comment")
 
 exports.viewBlogs = async (req, res) => {
     const blogs = await blogModel.find().populate('writer', '-password -role -__v')
+
+    const commentsValue =  await Promise.all(blogs.map(async (blog) => {
+        const comments = await commentModel.find({ blog: blog._id })
+        return comments.length
+    })
+    )
+    console.log(commentsValue);
 
 
     res.render("blogs", { blogs })
@@ -13,8 +20,9 @@ exports.viewSingleBlog = async (req, res) => {
 
 
     const singlBlog = await blogModel.findOne({ _id: req.query.id }).populate('writer', '-password -role -__v')
-    
-    res.render("blog-single", { singlBlog })
+    const blogComments = await commentModel.find({ blog: singlBlog._id }).populate('creator', '-password -__v -role')
+
+    res.render("blog-single", { singlBlog, blogComments })
 }
 
 
