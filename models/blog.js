@@ -27,7 +27,18 @@ const schema = mongoose.Schema({
 
 })
 
+schema.virtual("comments", {
 
+    ref: "Comment",
+    localField: "_id",
+    foreignField: "blog",
+    
+
+})
+
+
+schema.set('toJSON', { virtuals: true });
+schema.set('toObject', { virtuals: true });
 
 const model = mongoose.model('Blog', schema)
 

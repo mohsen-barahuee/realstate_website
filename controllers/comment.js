@@ -20,7 +20,7 @@ exports.createCommnet = async (req, res) => {
    const comment = await commentModel.create({
       creator: "683cae4f3f7fb073b0e9351a",
       body,
-      blog: "683efbca5959467020733c67",
+      blog: "683f2c320ce4ffbbdff1a9ad",
       time: commentTime
 
 

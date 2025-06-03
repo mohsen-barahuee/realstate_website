@@ -2,16 +2,12 @@ const blogModel = require('../models/blog')
 const commentModel = require("../models/comment")
 
 exports.viewBlogs = async (req, res) => {
-    const blogs = await blogModel.find().populate('writer', '-password -role -__v')
+    
+    const blogs = await blogModel.find()
+        .populate('writer', '-password -role -__v')
+        .populate('comments','-__v').exec();
 
-    const commentsValue =  await Promise.all(blogs.map(async (blog) => {
-        const comments = await commentModel.find({ blog: blog._id })
-        return comments.length
-    })
-    )
-    console.log(commentsValue);
-
-
+    
     res.render("blogs", { blogs })
 }
 
@@ -31,7 +27,6 @@ exports.uploadBlog = async (req, res) => {
     const { title, body, writer } = req.body
     const pictreUrl = req.files.pictures.map(item =>
         `http://localhost:4000/uploads/${item.filename}`)
-
 
     const blog = await blogModel.create({
         title,
