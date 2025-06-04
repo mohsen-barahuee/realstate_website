@@ -1,13 +1,16 @@
 const blogModel = require('../models/blog')
 const commentModel = require("../models/comment")
 
+
+
+
 exports.viewBlogs = async (req, res) => {
-    
+
     const blogs = await blogModel.find()
         .populate('writer', '-password -role -__v')
-        .populate('comments','-__v').exec();
+        .populate('comments', '-__v').exec();
 
-    
+
     res.render("blogs", { blogs })
 }
 
@@ -38,4 +41,35 @@ exports.uploadBlog = async (req, res) => {
     })
 
     res.json("upload")
+}
+
+
+
+exports.createComment = async (req, res) => {
+
+    const date = new Date()
+
+    let [year, month, day, hour, minute] = [date.getFullYear(), date.getMonth(), date.getDay(), date.getHours(), date.getMinutes()]
+
+
+    const commentTime = [year, month, day, hour, minute]
+
+    const { body } = req.body
+
+    if (!body) {
+        return res.json("please check the values")
+    }
+
+    const comment = await commentModel.create({
+        creator: req.user._id,
+        body,
+        blog: req.query.id,
+        time: commentTime
+
+
+    })
+
+
+    res.status(201).redirect(`/view-blog?id=${req.query.id}`)
+
 }

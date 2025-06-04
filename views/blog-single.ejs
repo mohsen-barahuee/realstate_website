@@ -147,7 +147,27 @@
               </div>
             </div>
           </div>
+          <div class="comment-respond">
+            <h3 class="comment-reply-title">یک پاسخ بگذارید</h3>
+            <form
+              class="comment-form"
+              method="post"
+              action="view-blog?id=<%= singlBlog._id %>"
+            >
+              <div class="form-textarea">
+                <textarea
+                  name="body"
+                  id="comment"
+                  placeholder="نظرات خود را بنویسید..."
+                ></textarea>
+              </div>
+              <div class="form-submit">
+                <input id="submit" value="ثبت نظر" type="submit" />
+              </div>
+            </form>
+          </div>
         </div>
+       
       </section>
 
       <%- include('partials/footer') %>

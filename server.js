@@ -5,7 +5,7 @@ const app = express()
 const registerRouter = require("./routes/register")
 const blogRouter = require('./routes/blog')
 const blogModel = require('./models/blog')
-const commentRouter = require("./routes/comment")
+
 
 require('dotenv').config()
 require('./config/db')
@@ -25,7 +25,7 @@ app.use('/uploads', express.static(path.join(__dirname, "uploads")))
 
 app.use('/', registerRouter)
 app.use('/', blogRouter)
-app.use('/', commentRouter)
+
 
 app.get("/", async (req, res) => {
 
