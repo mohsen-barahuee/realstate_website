@@ -1,9 +1,6 @@
 const blogModel = require('../models/blog')
 const commentModel = require("../models/comment")
 
-
-
-
 exports.viewBlogs = async (req, res) => {
 
     const blogs = await blogModel.find()
@@ -42,7 +39,6 @@ exports.uploadBlog = async (req, res) => {
 
     res.json("upload")
 }
-
 
 
 exports.createComment = async (req, res) => {

@@ -4,8 +4,7 @@ const path = require("path")
 const app = express()
 const registerRouter = require("./routes/register")
 const blogRouter = require('./routes/blog')
-const blogModel = require('./models/blog')
-
+const shopRouter = require('./routes/shop')
 
 require('dotenv').config()
 require('./config/db')
@@ -25,13 +24,9 @@ app.use('/uploads', express.static(path.join(__dirname, "uploads")))
 
 app.use('/', registerRouter)
 app.use('/', blogRouter)
+app.use('/',shopRouter)
 
 
-app.get("/", async (req, res) => {
-
-    const blogs = await blogModel.find()
-    res.render("index", { blog: blogs.slice(0, 2) })
-})
 
 
 app.get('/property', (req, res) => {
@@ -56,9 +51,6 @@ app.get("/services", (req, res) => {
     res.render("services")
 })
 
-app.get('/shop', (req, res) => {
-    res.render("shop")
-})
 
 app.get("/cart", (req, res) => {
     res.render("cart")
